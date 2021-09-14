@@ -4,14 +4,15 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'projectBytebank';
+  title = 'bytebank';
+  transferencias: any[] = [];
 
-  constructor(private service: TransferenciaService){}
+  constructor(private service: TransferenciaService) {}
 
-  transferir($event){
-    this.service.adicionar($event);
+  transferir($event) {
+    this.service.adicionar($event).subscribe(x => console.log(x));
   }
 }
